@@ -4,11 +4,10 @@ print(word[-1])
 
 
 # Вывести количество букв "а" в слове
-my_set = {'а'}
 word = 'Архангельск'
 count = 0
 for element in word:
-    if element.lower() in my_set:
+    if element.lower() == 'a':
         count += 1
 print(count)
 
@@ -34,5 +33,5 @@ print(*[i[0] for i in sentence.split()], sep='\n')
 
 # Вывести усреднённую длину слова в предложении
 sentence = 'Мы приехали в гости'
-sentence_1 = sentence.split()
-print(sum([len(i) for i in sentence_1]) // len(sentence_1))
+words = sentence.split()
+print(sum([len(word) for word in words]) // len(words))

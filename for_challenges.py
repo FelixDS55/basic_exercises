@@ -67,4 +67,4 @@ groups = [
     ['Вася', 'Маша', 'Саша', 'Женя'],
 ]
 for group_num, group in enumerate(groups, start=1):
-    print(f'Группа {group_num} -',  *(group))
+    print(f'Группа {group_num} -',  *group)
