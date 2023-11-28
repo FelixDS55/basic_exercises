@@ -69,7 +69,6 @@ school_students = [
         {'first_name': 'Саша'},
     ],
 ]
-name_lst = []
 for class_name in school_students:
     my_dict = {}
     for element in class_name:
@@ -77,11 +76,8 @@ for class_name in school_students:
             my_dict[element['first_name']] = 1
         else:
             my_dict[element['first_name']] += 1
-    name_lst.append(my_dict)
-
-for element_id, element in enumerate(name_lst, start=1):
-    max_name = max(element, key=element.get)
-    print(f'Самое частое имя в классе {element_id}: {max_name}')
+    max_name = max(my_dict, key=my_dict.get)
+    print(f'Самое частое имя в классе {school_students.index(class_name)+1}: {max_name}')
 
 
 # Задание 4
@@ -102,19 +98,19 @@ is_male = {
     'Миша': True,
     'Даша': False,
 }
-for student in school:
+for class_ in school:
     male_count = 0
     female_count = 0
-    for element in student['students']:
-        if element['first_name'] in is_male:
-            if is_male[element['first_name']] is True:
+    for student in class_['students']:
+        if student['first_name'] in is_male:
+            if is_male[student['first_name']] is True:
                 male_count += 1
             else:
                 female_count += 1
         else:
             print('Not found')
 
-    print(f'Класс {student["class"]}: девочки {female_count}, мальчики {male_count}')
+    print(f'Класс {class_["class"]}: девочки {female_count}, мальчики {male_count}')
 
 
 # Задание 5
@@ -135,20 +131,19 @@ is_male = {
 }
 
 my_lst = []
-for student in school:
+for class_ in school:
     male_count = 0
     female_count = 0
     dict_male = {}
-    for names in student['students']:
-        if names['first_name'] in is_male:
-            if is_male[names['first_name']] is True:
+    for student in class_['students']:
+        if student['first_name'] in is_male:
+            if is_male[student['first_name']] is True:
                 male_count += 1
             else:
                 female_count += 1
         else:
             continue
-        dict_male[student['class']] = {'girls': female_count, 'boys': male_count}
-        dict_male[student['class']] = {'girls': female_count, 'boys': male_count}
+        dict_male[class_['class']] = {'girls': female_count, 'boys': male_count}
 
     my_lst.append(dict_male)
 
